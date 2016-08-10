@@ -107,7 +107,7 @@ $(document).ready(function(){
 		$("#" + tileId).css("opacity",1);
 		setTimeout(function(){
 			$("#" + tileId).css("opacity",0.5);
-			tileAudio.pause();
+			//tileAudio.pause();
 		},gameState.animationSpeed);
 	}// /tileClick()
 
