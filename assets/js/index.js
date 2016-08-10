@@ -105,7 +105,10 @@ $(document).ready(function(){
 		tileAudio = new Audio(audioUrl[tileId]);		
 		tileAudio.play();
 		$("#" + tileId).css("opacity",1);
-		setTimeout(function(){$("#" + tileId).css("opacity",0.5);},gameState.animationSpeed);
+		setTimeout(function(){
+			$("#" + tileId).css("opacity",0.5);
+			tileAudio.stop();
+		},gameState.animationSpeed);
 	}// /tileClick()
 
 	function compMove(){		
