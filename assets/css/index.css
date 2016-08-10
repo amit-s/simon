@@ -1,0 +1,260 @@
+#winHeading h1{
+	font-family: 'Bungee Inline', cursive;
+	font-size: 4em;
+	visibility : hidden;
+	animation-name : blink;
+	animation-duration : 0.5s;
+	animation-iteration-count: infinite;
+}
+
+@keyframes blink{
+	0% {opacity : 1;}
+	50% {opacity : 0;}
+	100% {opacity : 1;}
+}
+
+#gameBoard{
+	position: relative;
+	margin: auto;
+	width: 300px;
+	background: rgba(1,1,1,0);
+	border-radius: 100%;
+	transition: background 3s;
+}
+
+#topRow{
+	display: flex;
+}
+
+#bottomRow{
+	display: flex;
+}
+
+.tile{
+	width: 150px;
+	height: 150px;
+	opacity: 0;
+}
+
+#greenTile{	
+	background: rgba(0,255,0,1);
+	border-top-left-radius: 100%;
+	transform: scale(0.88) translate(4px, 4px);
+	
+}
+
+#redTile{
+	background: rgba(255,0,0,1);
+	border-top-right-radius: 100%;
+	transform: scale(0.88) translate(-4px, 4px);
+	
+}
+
+#yellowTile{
+	background: rgba(255,255,0,1);
+	border-bottom-left-radius: 100%;
+	transform: scale(0.88) translate(4px, -4px);
+	
+}
+
+#blueTile{
+	background: rgba(0,0,255,1);
+	border-bottom-right-radius: 100%;
+	transform: scale(0.88) translate(-4px, -4px);
+	
+}
+
+.wrongTile{
+	opacity: 0.1;	
+	box-shadow: inset -25px -25px 100px red;
+}
+
+
+#gameControl{
+	position: absolute;
+	left: 75px;
+	top: 75px;
+	height: 150px;
+	width: 150px;
+	border-radius: 100%;
+	background: black;	
+	z-index: 1;
+	text-align: center;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+#title{
+	padding-top: 20px;
+	font-size: 1.7em;
+	color: white;
+	font-family: 'Syncopate', sans-serif;
+	flex-basis: 100%;
+}
+
+#screen div:first-child{
+	margin: auto;
+	border-radius: 5px;
+	color: red;
+	background: rgba(61,0,0,1);
+	width: 30px;
+	height: 20px;
+	font-family: 'Montserrat', sans-serif;
+}
+
+#screen div:nth-child(2), #start div:nth-child(2), #strict div:nth-child(2),  #power{
+	color: white;
+	font-family: 'Open Sans Condensed', sans-serif;
+}
+
+#startLight, #strictLight{
+	margin: auto;
+	height: 20px;
+	width: 20px;
+	background: white;
+	border: 1px solid black;
+	border-radius: 100%;
+	box-shadow: 2px 2px 2px red;
+}
+
+.lightOn{
+	background: red !important;
+}
+
+#screen, #start, #strict{
+	flex: 1;
+}
+
+#power{
+	flex: 1 1 100%;	
+}
+
+#power div:first-child{	
+	display: flex;
+	color: white;
+	justify-content: center;
+}
+
+#power div:first-child > *{
+	margin: 0 2px 0 2px;
+}
+
+
+/*****************SLIDER BUTTON******************/
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {display:none;}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /*background-color: #ccc;*/
+  background-color: rgba(255,255,255,0.2);
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 15px;
+  width: 15px;
+  left: 4px;
+  /*bottom: 4px;*/
+  top: 2px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  /*background-color: #2196F3;*/
+  background-color: rgba(255,255,255,0.2);
+  
+}
+
+input:focus + .slider {
+  /*box-shadow: 0 0 1px #2196F3;*/
+  box-shadow: 0 0 1px rgba(255,255,255,0.2);
+
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(18px);
+  -ms-transform: translateX(18px);
+  transform: translateX(18px);
+}
+
+/**************END SLIDER BUTTON*********************/
+
+/**************MEDIA QUERIES*************************/
+@media only screen and (min-width: 350px){
+	.tile{
+		width:160px;
+		height: 160px;
+	}
+
+	#gameBoard{
+		width: 320px;
+	}
+
+	#gameControl{
+		left: 85px;
+		top: 85px;
+
+	}
+}/*@media only screen and (min-width: 350px)*/
+
+@media only screen and (min-width: 768px){
+	.tile{
+		width: 200px;
+		height: 200px;
+	}
+
+	#gameBoard{
+		width: 400px;
+	}
+
+	#gameControl{
+		left: 100px;
+		top: 100px;
+		height: 200px;
+		width: 200px;
+	}
+
+	#startLight, #strictLight{
+	margin: auto;
+	height: 35px;
+	width: 35px;
+	}
+
+	#screen div:nth-child(2), #start div:nth-child(2), #strict div:nth-child(2),  #power{
+		font-size: 1.2em;
+	}
+
+	#screen div:first-child{	
+		width: 40px;
+		height: 35px;
+		font-size: 2em;	
+	}
+
+	#title{
+		padding-top: 30px;
+		font-size: 2.4em;
+	}
+}/*@media only screen and (min-width: 768px)*/
+
+/**************END MEDIA QUERIES**********************/
