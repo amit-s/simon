@@ -14,7 +14,7 @@ $(document).ready(function(){
 		power : false,
 		speed : 1200,
 		animationSpeed : 500,
-		finalRound : 5
+		finalRound : 20
 	},
 	$gameScreen = $("#screen div:first-child"),
 	clickTimeout;
@@ -102,10 +102,16 @@ $(document).ready(function(){
 		blueTile : "https://s3.amazonaws.com/freecodecamp/simonSound4.mp3"
 		},
 		tileId = tid,
-		tileAudio = new Audio(audioUrl[tileId]);		
+		/*tileAudio = new Audio(audioUrl[tileId]);		*/
+		tileAudio = document.createElement("audio");
+		tileAudio.type = "audio/mpeg";
+		tileAudio.src = audioUrl[tileId];
 		tileAudio.play();
 		$("#" + tileId).css("opacity",1);
-		setTimeout(function(){$("#" + tileId).css("opacity",0.5);},gameState.animationSpeed);
+		setTimeout(function(){
+			$("#" + tileId).css("opacity",0.5);
+			tileAudio.stop();
+		},gameState.animationSpeed);
 	}// /tileClick()
 
 	function compMove(){		
