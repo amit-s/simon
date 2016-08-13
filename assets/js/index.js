@@ -14,7 +14,7 @@ $(document).ready(function(){
 		power : false,
 		speed : 1200,
 		animationSpeed : 500,
-		finalRound : 10
+		finalRound : 20
 	},
 	$gameScreen = $("#screen div:first-child"),
 	clickTimeout;
